@@ -20,8 +20,9 @@ gulp.task('webserver', function() {
 
 gulp.task('html', function(){
   gulp.src('./app/*.pug')
-  .pipe(plumberNotifier())
+  
   .pipe(changed('./dist/'))
+  .pipe(plumberNotifier())
   .pipe(pug({
     pretty: true
   }))
@@ -39,8 +40,9 @@ gulp.task('js', function(){
 })
 gulp.task('css', function () {
   return gulp.src('./app/scss/*.scss')
-  .pipe(plumberNotifier())
+  
   .pipe(changed('./dist/css'))
+  .pipe(plumberNotifier())
   .pipe(sass())
   .pipe(autoprefixer({
     browsers: ['last 20 versions'],
